@@ -1,0 +1,23 @@
+<div class="card-wrapper">
+  <button (click)="toggleFlip()">
+    <i class="pi pi-arrow-circle-right" [class.active-color]="flip === 'active'" [@flipState]="flip"></i>
+  </button>
+  <div 
+    class="card" 
+    [@flipState]="flip"
+  > 
+    <div class="side front">
+      <div class="image-container">  
+        <img [src]="imgSrc" alt="img" />
+        <div class="info-overlay">
+          <p>{{ title }}</p>
+          <p>{{ date | date: 'mediumDate' }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="side back">
+      <h2>Overview</h2>
+      <p>{{ description }}</p>
+    </div>
+  </div>
+</div>
