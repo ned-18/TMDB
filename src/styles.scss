@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
+@import 'colors';
+@import 'primeicons/primeicons.css';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  display: flex;
+}
+
+body {
+  margin: 0;
+  font-style: normal;
+  font-family: "Iceland", sans-serif;
+  font-size: 16px;
+  overflow: overlay;
+  background-color: $dark-navy;
+}
+
+html, body {
+  min-height: 100%;
+  min-width: 100%;
+}
