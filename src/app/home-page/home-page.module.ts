@@ -7,9 +7,6 @@ import { SearchBarComponent } from './layout/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [LayoutComponent, NavbarComponent, SearchBarComponent],
-  imports: [
-    CommonModule,
-    HomePageRoutingModule,
-  ]
+  imports: [CommonModule, HomePageRoutingModule]
 })
 export class HomePageModule {}
