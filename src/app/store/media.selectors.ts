@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { MediaState } from './media.reducer';
+import { MediaState } from '@media-store/media.reducer';
 
 export const selectMediaState = createFeatureSelector<MediaState>('media');
 export const selectMovies = createSelector(selectMediaState, (state) => state.movies);

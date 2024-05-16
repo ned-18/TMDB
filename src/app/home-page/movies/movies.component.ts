@@ -3,9 +3,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
-import * as MediaActions from '../../store/media.actions';
-import * as MediaSelectors from '../../store/media.selectors';
-import { Movie, IMAGE_BASE_URL } from 'src/app/core/models';
+import * as MediaActions from '@media-store/media.actions';
+import * as MediaSelectors from '@media-store/media.selectors';
+import { Movie, IMAGE_BASE_URL } from '@models/index';
 
 @Component({
   selector: 'app-movies',

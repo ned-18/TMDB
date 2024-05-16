@@ -3,6 +3,26 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "paths": {
+      "@environments/*": [
+        "src/environments/*"
+      ],
+      "@services/*": [
+        "src/app/core/services/*"
+      ],
+      "@models/*": [
+        "src/app/core/models/*"
+      ],
+      "@shared/*": [
+        "src/app/shared/*"
+      ],
+      "@media-store/*": [
+        "src/app/store/*"
+      ],
+      "@search-store/*": [
+        "src/app/home-page/layout/search-bar/store/*"
+      ]
+    },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,

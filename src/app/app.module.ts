@@ -10,11 +10,11 @@ import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Page404Component } from './pages/page404/page404.component';
-import { environment } from '../environments/environment';
+import { environment } from '@environments/environment';
 
-import { mediaReducer } from './store/media.reducer';
-import { MediaEffects } from './store/media.effects';
-import { searchReducer } from './home-page/layout/search-bar/store/search.reducer';
+import { mediaReducer } from '@media-store/media.reducer';
+import { MediaEffects } from '@media-store/media.effects';
+import { searchReducer } from '@search-store/search.reducer';
 
 @NgModule({
   declarations: [AppComponent, Page404Component],

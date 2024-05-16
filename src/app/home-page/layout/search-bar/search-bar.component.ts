@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Subject, Observable, combineLatest } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, map } from 'rxjs/operators';
-import * as SearchActions from './store/search.actions';
-import { selectSearchTerm } from './store/search.selectors';
+import * as SearchActions from '@search-store/search.actions';
+import { selectSearchTerm } from '@search-store/search.selectors';
 
 @Component({
   selector: 'app-search-bar',

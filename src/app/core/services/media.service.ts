@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment';
+import { environment } from '@environments/environment';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { TvShow, Movie, ApiResponse } from '../models';
+import { TvShow, Movie, ApiResponse } from '@models/index';
 
 const API_URL = environment.apiURL;
-const API_KEY = environment.apiKey;
+const API_KEY = environment.tmdbApiKey;
 
 @Injectable({
   providedIn: 'root'

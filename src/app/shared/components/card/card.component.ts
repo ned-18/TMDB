@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { Flip } from 'src/app/core/models';
+import { Flip } from '@models/index';
 
 @Component({
   selector: 'app-card',
