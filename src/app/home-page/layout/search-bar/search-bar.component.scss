@@ -1,9 +1,14 @@
 @import 'colors';
 
+:host {
+  width: 100%;
+}
+
 .search-input {
   position: relative;
   color: $dark-navy;
-  width: 600px;
+  margin: 0 auto;
+  width: 50%;
 
   input {
     padding: 10px 45px;

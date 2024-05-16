@@ -20,7 +20,56 @@ body {
   background-color: $dark-navy;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 html, body {
   min-height: 100%;
   min-width: 100%;
+}
+
+.cards { 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0;
+  gap: 20px;
+}
+
+.loading {
+  color: $light-grey;
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.loading:after {
+  content: ' .';
+  animation: dots 2s steps(5, end) infinite;
+}
+
+@keyframes dots {
+  0%, 20% {
+    color: transparent;
+    text-shadow:
+      .25em 0 0 transparent,
+      .5em 0 0 transparent;
+  }
+  40% {
+    color: $light-grey;
+    text-shadow:
+      .25em 0 0 transparent,
+      .5em 0 0 transparent;
+  }
+  60% {
+    text-shadow:
+      .25em 0 0 $light-grey,
+      .5em 0 0 transparent;
+  }
+  80%, 100% {
+    text-shadow:
+      .25em 0 0 $light-grey,
+      .5em 0 0 $light-grey;
+  }
 }

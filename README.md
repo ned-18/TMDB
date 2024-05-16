@@ -1,14 +1,49 @@
-# MyAngularApp
+# TMDB
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.14.
+
+## Prerequisites
+
+Node.js, npm (or yarn) and Angular(v16.2.14) installed on your machine.
+A TMDB API key. You can get one for free by signing up at https://www.themoviedb.org/.
+
+## Installation
+
+To set up this project locally, follow these steps:
+
+1. Clone the repository to your local machine:
+
+   ```
+   git clone https://github.com/ned-18/TMDB.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```
+   cd TMDB
+   ```
+
+3. Install the required dependencies:
+
+   ```
+   npm install
+   ```
+
+4. Add Your TMDB API Key:
+    Open the `src/environments/environment.ts` file.
+    Replace "YOUR_TMDB_API_KEY" with your actual TMDB API key:
+     ```
+    export const environment = {
+        production: false,
+        apiURL: 'https://api.themoviedb.org/3/',
+        tmdbApiKey: 'YOUR_TMDB_API_KEY', // Add your API key here
+    };
+    ```
+    Also do the same for `src/environments/environment.prod.ts`
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
