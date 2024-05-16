@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
-import { Movie, TvShow } from '../core/models/media';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Movie, TvShow } from '@models/index';
 
 //Fetch Movies
 export const fetchMovies = createAction('[Movies] Fetch Movies');

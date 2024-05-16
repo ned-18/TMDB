@@ -1,7 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
-import { Movie, TvShow } from '../core/models/media';
-import * as MediaActions from './media.actions';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Movie, TvShow } from '@models/index';
+import * as MediaActions from '@media-store/media.actions';
 
 export interface MediaState {
   tvShows: TvShow[];

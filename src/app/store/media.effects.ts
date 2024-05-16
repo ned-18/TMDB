@@ -3,10 +3,10 @@ import { Store, select } from '@ngrx/store';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, map, switchMap, withLatestFrom } from 'rxjs/operators';
-import * as MediaActions from './media.actions';
-import * as SearchActions from '../home-page/layout/search-bar/store/search.actions';
-import { selectSearchTerm } from '../home-page/layout/search-bar/store/search.selectors';
-import { MediaService } from '../core/services/media.service';
+import * as MediaActions from '@media-store/media.actions';
+import * as SearchActions from '@search-store/search.actions';
+import { selectSearchTerm } from '@search-store/search.selectors';
+import { MediaService } from '@services/media.service';
 
 @Injectable()
 export class MediaEffects {
