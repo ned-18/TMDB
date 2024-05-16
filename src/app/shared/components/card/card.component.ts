@@ -18,7 +18,7 @@ import { Flip } from 'src/app/core/models';
 export class CardComponent {
   @Input() imgSrc!: string;
   @Input() title!: string;
-  @Input() date!: Date;
+  @Input() date!: string;
   @Input() description!: string;
   public flip = Flip.Inactive;
 

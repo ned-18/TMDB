@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Store, select } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
+import * as MediaActions from '../../store/media.actions';
+import * as MediaSelectors from '../../store/media.selectors';
+import { Movie, IMAGE_BASE_URL } from 'src/app/core/models';
 
 @Component({
   selector: 'app-movies',
@@ -6,8 +13,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movies.component.scss']
 })
 export class MoviesComponent implements OnInit {
-  constructor() {}
+  readonly IMAGE_BASE_URL = IMAGE_BASE_URL;
+  public movies$: Observable<Movie[]>;
+  public loading$: Observable<boolean>;
+  public error$: Observable<HttpErrorResponse | null>;
 
-  ngOnInit(): void {}
+  constructor(private store: Store) {
+    this.movies$ = this.store.pipe(select(MediaSelectors.selectMovies), take(10));
+    this.loading$ = this.store.pipe(select(MediaSelectors.selectMediaLoading));
+    this.error$ = this.store.pipe(select(MediaSelectors.selectMediaError));
+  }
 
+  ngOnInit() {
+    this.store.dispatch(MediaActions.fetchMovies());
+  }
 }

@@ -8,7 +8,7 @@
   > 
     <div class="side front">
       <div class="image-container">  
-        <img [src]="imgSrc" alt="img" />
+        <img [src]="imgSrc" [alt]="title" />
         <div class="info-overlay">
           <p>{{ title }}</p>
           <p>{{ date | date: 'mediumDate' }}</p>

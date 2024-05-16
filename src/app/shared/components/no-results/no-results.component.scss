@@ -1,0 +1,14 @@
+@import 'colors';
+
+.no-results-container {
+  text-align: center;
+  h3 {
+    font-size: 1.5rem;
+    color: $aqua;
+  }
+
+  p {
+    color: $light-grey;
+    font-size: 1.2rem;
+  }
+}

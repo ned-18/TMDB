@@ -1,1 +1,26 @@
-<p>movies</p>
+<div *ngIf="loading$ | async" class="loading">Loading...</div>
+
+<app-no-results 
+  *ngIf="error$ | async as error"
+  header="Oops, something went wrong!"
+  message="We are having trouble loading the movies right now. Please try again later"
+></app-no-results>
+
+<div 
+  class="cards" 
+  *ngIf="(movies$ | async) && (error$ | async) === null && (loading$ | async) === false"
+>  
+  <app-card
+    *ngFor="let movie of movies$ | async"
+    [title]="movie.title"
+    [date]="movie.release_date"
+    [description]="movie.overview"
+    [imgSrc]="IMAGE_BASE_URL + movie.poster_path"
+  ></app-card>
+
+  <app-no-results 
+    *ngIf="(movies$ | async)?.length === 0" 
+    header="No Results Found"
+    message="We could not find any movies matching your search."
+  ></app-no-results>
+</div>
