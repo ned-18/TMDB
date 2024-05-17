@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Flip } from '@models/index';
 
@@ -20,9 +20,15 @@ export class CardComponent {
   @Input() title!: string;
   @Input() date!: string;
   @Input() description!: string;
+  @Output() cardClick = new EventEmitter<number>();
+  @Input() id!: number;
   public flip = Flip.Inactive;
 
   public toggleFlip() {
     this.flip = this.flip === Flip.Inactive ? Flip.Active : Flip.Inactive;
+  }
+
+  public onCardClick() {
+    this.cardClick.emit(this.id);
   }
 }

@@ -18,7 +18,9 @@ export class MediaService {
     const url = `${API_URL}/${endpoint}?api_key=${API_KEY}&${Object.entries(params)
       .map(([key, value]) => `${key}=${value}`)
       .join('&')}`;
-    return this.http.get<ApiResponse<T>>(url).pipe(map((response) => response.results));
+    return this.http
+      .get<ApiResponse<T>>(url)
+      .pipe(map((response) => response.results.slice(0, 10)));
   }
 
   getTopMovies(): Observable<Movie[]> {

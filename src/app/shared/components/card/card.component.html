@@ -3,7 +3,8 @@
     <i class="pi pi-arrow-circle-right" [class.active-color]="flip === 'active'" [@flipState]="flip"></i>
   </button>
   <div 
-    class="card" 
+    class="card"
+    (click)="onCardClick()"
     [@flipState]="flip"
   > 
     <div class="side front">

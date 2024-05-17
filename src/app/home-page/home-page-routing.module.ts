@@ -9,20 +9,19 @@ const routes: Routes = [
     children: [
       {
         path: 'tv-shows',
-        loadChildren: () =>
-          import('./tv-shows/tv-shows.module').then(
-            (m) => m.TvShowsModule
-          )
+        loadChildren: () => import('./tv-shows/tv-shows.module').then((m) => m.TvShowsModule)
       },
       {
         path: 'movies',
-        loadChildren: () =>
-          import('./movies/movies.module').then(
-            (m) => m.MoviesModule,
-          )
+        loadChildren: () => import('./movies/movies.module').then((m) => m.MoviesModule)
       },
-      { path: '', redirectTo: '/tv-shows', pathMatch: 'full' },
+      { path: '', redirectTo: '/tv-shows', pathMatch: 'full' }
     ]
+  },
+  {
+    path: 'details/:id',
+    loadChildren: () =>
+      import('./media-details/media-details.module').then((m) => m.MediaDetailsModule)
   }
 ];
 

@@ -5,8 +5,7 @@ import { Page404Component } from './pages/page404/page404.component';
 const appRoutes: Routes = [
   {
     path: '',
-    loadChildren: () =>
-      import('./home-page/home-page.module').then((m) => m.HomePageModule),
+    loadChildren: () => import('./home-page/home-page.module').then((m) => m.HomePageModule)
   },
   { path: '**', pathMatch: 'full', component: Page404Component }
 ];

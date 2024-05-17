@@ -16,11 +16,12 @@
     [date]="movie.release_date"
     [description]="movie.overview"
     [imgSrc]="IMAGE_BASE_URL + movie.poster_path"
+    (cardClick)="onCardClick(movie, movie.id)"
   ></app-card>
 
   <app-no-results 
     *ngIf="(movies$ | async)?.length === 0" 
-    header="No Results Found"
+    header="No Results Found!"
     message="We could not find any movies matching your search."
   ></app-no-results>
 </div>

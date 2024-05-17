@@ -10,7 +10,7 @@ import { MediaService } from '@services/media.service';
 
 @Injectable()
 export class MediaEffects {
-  fetchMovie$ = createEffect(() =>
+  fetchMovies$ = createEffect(() =>
     this.actions$.pipe(
       ofType(MediaActions.fetchMovies, SearchActions.updateSearchTerm),
       withLatestFrom(this.store.pipe(select(selectSearchTerm))),

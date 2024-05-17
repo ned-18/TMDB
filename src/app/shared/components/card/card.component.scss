@@ -2,7 +2,13 @@
 @import 'colors';
 
 .card-wrapper {
-  perspective: 800px; 
+  perspective: 800px;
+  transition: all .2s ease-in;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
 
   button {
     cursor: pointer;
