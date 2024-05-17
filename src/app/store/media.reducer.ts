@@ -51,5 +51,9 @@ export const mediaReducer = createReducer(
   on(MediaActions.selectMediaItem, (state, { mediaItem }) => ({
     ...state,
     selectedMedia: mediaItem
+  })),
+  on(MediaActions.clearSelectedMediaItem, (state) => ({
+    ...state,
+    selectedMedia: null
   }))
 );
