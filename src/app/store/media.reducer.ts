@@ -55,5 +55,22 @@ export const mediaReducer = createReducer(
   on(MediaActions.clearSelectedMediaItem, (state) => ({
     ...state,
     selectedMedia: null
+  })),
+  on(MediaActions.fetchMediaItemById, (state) => ({
+    ...state,
+    selectedMedia: null,
+    loading: true,
+    error: null
+  })),
+  on(MediaActions.fetchMediaItemByIdSuccess, (state, { mediaItem }) => ({
+    ...state,
+    selectedMedia: mediaItem,
+    loading: false,
+    error: null
+  })),
+  on(MediaActions.fetchMediaItemByIdFailure, (state, { error }) => ({
+    ...state,
+    loading: false,
+    error
   }))
 );

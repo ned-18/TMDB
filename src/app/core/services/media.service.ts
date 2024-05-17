@@ -1,9 +1,9 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '@environments/environment';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { TvShow, Movie, ApiResponse } from '@models/index';
+import { ApiResponse, MediaType, Movie, TvShow } from '@models/index';
+import { environment } from '@environments/environment';
 
 const API_URL = environment.apiURL;
 const API_KEY = environment.tmdbApiKey;
@@ -14,28 +14,36 @@ const API_KEY = environment.tmdbApiKey;
 export class MediaService {
   constructor(private http: HttpClient) {}
 
-  private fetchItems<T>(endpoint: string, params: { [key: string]: string } = {}): Observable<T[]> {
-    const url = `${API_URL}/${endpoint}?api_key=${API_KEY}&${Object.entries(params)
-      .map(([key, value]) => `${key}=${value}`)
-      .join('&')}`;
+  private buildUrl(endpoint: string, params: { [key: string]: string } = {}): string {
+    const queryParams = new URLSearchParams({ api_key: API_KEY, ...params });
+    return `${API_URL}/${endpoint}?${queryParams}`;
+  }
+
+  private fetchItems<T>(
+    endpoint: string,
+    params: { [key: string]: string } = {},
+    limit = 10
+  ): Observable<T[]> {
+    const url = this.buildUrl(endpoint, params);
     return this.http
       .get<ApiResponse<T>>(url)
-      .pipe(map((response) => response.results.slice(0, 10)));
+      .pipe(map((response) => response.results.slice(0, limit)));
   }
 
-  getTopMovies(): Observable<Movie[]> {
-    return this.fetchItems<Movie>('movie/top_rated');
+  private fetchItem<T>(endpoint: string, params: { [key: string]: string } = {}): Observable<T> {
+    const url = this.buildUrl(endpoint, params);
+    return this.http.get<T>(url);
   }
 
-  searchMovies(searchTerm: string): Observable<Movie[]> {
-    return this.fetchItems<Movie>('search/movie', { query: searchTerm });
+  getTopItems<T extends Movie | TvShow>(mediaType: MediaType): Observable<T[]> {
+    return this.fetchItems<T>(`${mediaType}/top_rated`);
   }
 
-  getTopTvShows(): Observable<TvShow[]> {
-    return this.fetchItems<TvShow>('tv/top_rated');
+  searchItems<T extends Movie | TvShow>(mediaType: MediaType, searchTerm: string): Observable<T[]> {
+    return this.fetchItems<T>(`search/${mediaType}`, { query: searchTerm });
   }
 
-  searchTvShows(searchTerm: string): Observable<TvShow[]> {
-    return this.fetchItems<TvShow>('search/tv', { query: searchTerm });
+  getItemById<T extends Movie | TvShow>(mediaType: MediaType, id: number): Observable<T> {
+    return this.fetchItem<T>(`${mediaType}/${id}`);
   }
 }

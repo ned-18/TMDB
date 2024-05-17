@@ -16,7 +16,7 @@
     [date]="tvShow.first_air_date"
     [description]="tvShow.overview"
     [imgSrc]="IMAGE_BASE_URL + tvShow.poster_path"
-    (cardClick)="onCardClick(tvShow, tvShow.id)"
+    (cardClick)="onCardClick(tvShow.id)"
   ></app-card>
 
   <app-no-results
