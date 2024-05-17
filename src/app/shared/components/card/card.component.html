@@ -1,14 +1,14 @@
 <div class="card-wrapper">
   <button (click)="toggleFlip()">
-    <i class="pi pi-arrow-circle-right" [class.active-color]="flip === 'active'" [@flipState]="flip"></i>
+    <i
+      class="pi pi-arrow-circle-right"
+      [class.active-color]="flip === 'active'"
+      [@flipState]="flip"
+    ></i>
   </button>
-  <div 
-    class="card"
-    (click)="onCardClick()"
-    [@flipState]="flip"
-  > 
+  <div class="card" (click)="onCardClick()" [@flipState]="flip">
     <div class="side front">
-      <div class="image-container">  
+      <div class="image-container">
         <img [src]="imgSrc" [alt]="title" />
         <div class="info-overlay">
           <p>{{ title }}</p>

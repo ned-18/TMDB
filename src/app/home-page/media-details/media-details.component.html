@@ -1,20 +1,27 @@
 <button class="back-btn" (click)="back()"><i class="pi pi-angle-left"></i>Back</button>
-<div *ngIf="mediaItem;else noDetails"  class="details_card">
-  <div class="background-image" [ngStyle]="{'background-image': 'url(' + IMAGE_BASE_URL + mediaItem.backdrop_path + ')'}">
+<div *ngIf="mediaItem; else noDetails" class="details_card">
+  <div
+    class="background-image"
+    [ngStyle]="{ 'background-image': 'url(' + IMAGE_BASE_URL + mediaItem.backdrop_path + ')' }"
+  >
     <div class="overlay">
       <img
-        class="poster" 
-        [src]="IMAGE_BASE_URL + mediaItem.poster_path" 
+        class="poster"
+        [src]="IMAGE_BASE_URL + mediaItem.poster_path"
         [alt]="isMovie(mediaItem) ? mediaItem.title : mediaItem.name"
       />
       <div class="info">
         <div>
           <h1>{{ isMovie(mediaItem) ? mediaItem.title : mediaItem.name }}</h1>
-          <h4>{{ isMovie(mediaItem) ? 
-            (mediaItem.release_date | date: 'mediumDate') 
-            : (mediaItem.first_air_date | date: 'mediumDate') }}</h4>
+          <h4>
+            {{
+              isMovie(mediaItem)
+                ? (mediaItem.release_date | date: 'mediumDate')
+                : (mediaItem.first_air_date | date: 'mediumDate')
+            }}
+          </h4>
         </div>
-       
+
         <div>
           <h2>Overview</h2>
           <p>{{ mediaItem.overview }}</p>
@@ -25,9 +32,6 @@
 </div>
 
 <ng-template #noDetails>
-  <app-no-results 
-    header="No Results Found!"
-    message="No information available for this media item"
-  >
+  <app-no-results header="No Results Found!" message="No information available for this media item">
   </app-no-results>
 </ng-template>

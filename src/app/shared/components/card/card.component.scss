@@ -1,14 +1,12 @@
-
 @import 'colors';
 
 .card-wrapper {
   perspective: 800px;
-  transition: all .2s ease-in;
+  transition: all 0.2s ease-in;
 
   &:hover {
     transform: scale(1.05);
   }
-
 
   button {
     cursor: pointer;
@@ -25,7 +23,7 @@
       display: inline-block;
       font-size: 1.1rem;
       color: $light-grey;
-      transition: transform 0.5s ease-in-out; 
+      transition: transform 0.5s ease-in-out;
     }
 
     .active-color {
@@ -38,7 +36,7 @@
     cursor: pointer;
     width: 200px;
     height: 300px;
-    transform-origin: top; 
+    transform-origin: top;
     transform-style: preserve-3d;
     transform: transform 1s;
 
@@ -60,8 +58,8 @@
         position: relative;
         width: 100%;
         height: 300px;
-        
-        img { 
+
+        img {
           width: 100%;
           height: 100%;
           color: $light-grey;
@@ -69,8 +67,8 @@
 
         .info-overlay {
           position: absolute;
-          bottom: 0; 
-          left: 0; 
+          bottom: 0;
+          left: 0;
           width: 100%;
           background-color: $box-overlay-color;
           color: $light-grey;
@@ -92,7 +90,8 @@
       background: $light-grey;
       transform: rotateY(-180deg);
 
-      h2, p {
+      h2,
+      p {
         margin: 0;
         padding: 5px 20px;
         color: $dark-navy;

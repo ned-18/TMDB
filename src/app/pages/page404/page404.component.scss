@@ -46,12 +46,10 @@ h1 {
 
   background: linear-gradient(to left, $aqua 50%, $dark-navy 50%) right;
   background-size: 200%;
-  transition: .2s ease-out;
+  transition: 0.2s ease-out;
 
   &:hover {
     background-position: left;
     color: $aqua;
   }
 }
-
-

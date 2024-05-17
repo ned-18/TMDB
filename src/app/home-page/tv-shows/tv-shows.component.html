@@ -1,15 +1,15 @@
 <div *ngIf="loading$ | async" class="loading">Loading</div>
 
-<app-no-results 
+<app-no-results
   *ngIf="error$ | async as error"
   header="Oops, something went wrong!"
   message="We are having trouble loading the TV shows right now. Please try again later!"
 ></app-no-results>
 
-<div 
-  class="cards" 
+<div
+  class="cards"
   *ngIf="(tvShows$ | async) && (error$ | async) === null && (loading$ | async) === false"
->  
+>
   <app-card
     *ngFor="let tvShow of tvShows$ | async"
     [title]="tvShow.name"
@@ -19,8 +19,8 @@
     (cardClick)="onCardClick(tvShow, tvShow.id)"
   ></app-card>
 
-  <app-no-results 
-    *ngIf="(tvShows$ | async)?.length === 0" 
+  <app-no-results
+    *ngIf="(tvShows$ | async)?.length === 0"
     header="No Results Found"
     message="We could not find any TV shows matching your search."
   ></app-no-results>
