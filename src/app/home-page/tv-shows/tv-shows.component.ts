@@ -5,7 +5,7 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as MediaActions from '@media-store/media.actions';
 import { selectTvShows, selectMediaLoading, selectMediaError } from '@media-store/media.selectors';
-import { TvShow, IMAGE_BASE_URL } from '@models/index';
+import { TvShow, MediaType, IMAGE_BASE_URL } from '@models/index';
 
 @Component({
   selector: 'app-tv-shows',
@@ -31,8 +31,7 @@ export class TvShowsComponent implements OnInit {
     this.store.dispatch(MediaActions.fetchTvShows());
   }
 
-  public onCardClick(mediaItem: TvShow, id: number) {
-    this.store.dispatch(MediaActions.selectMediaItem({ mediaItem }));
-    this.router.navigate(['/details', id]);
+  public onCardClick(id: number) {
+    this.router.navigate(['/details', MediaType.Tv, id]);
   }
 }

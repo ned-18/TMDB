@@ -5,7 +5,7 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as MediaActions from '@media-store/media.actions';
 import * as MediaSelectors from '@media-store/media.selectors';
-import { Movie, IMAGE_BASE_URL } from '@models/index';
+import { Movie, MediaType, IMAGE_BASE_URL } from '@models/index';
 
 @Component({
   selector: 'app-movies',
@@ -31,8 +31,7 @@ export class MoviesComponent implements OnInit {
     this.store.dispatch(MediaActions.fetchMovies());
   }
 
-  public onCardClick(mediaItem: Movie, id: number) {
-    this.store.dispatch(MediaActions.selectMediaItem({ mediaItem }));
-    this.router.navigate(['/details', id]);
+  public onCardClick(id: number) {
+    this.router.navigate(['/details', MediaType.Movie, id]);
   }
 }

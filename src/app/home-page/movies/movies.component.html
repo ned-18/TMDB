@@ -16,7 +16,7 @@
     [date]="movie.release_date"
     [description]="movie.overview"
     [imgSrc]="IMAGE_BASE_URL + movie.poster_path"
-    (cardClick)="onCardClick(movie, movie.id)"
+    (cardClick)="onCardClick(movie.id)"
   ></app-card>
 
   <app-no-results

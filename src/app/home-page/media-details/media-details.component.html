@@ -1,8 +1,18 @@
 <button class="back-btn" (click)="back()"><i class="pi pi-angle-left"></i>Back</button>
-<div *ngIf="mediaItem; else noDetails" class="details_card">
+<div *ngIf="loading$ | async" class="loading">Loading...</div>
+
+<app-no-results
+  *ngIf="error$ | async as error"
+  header="No Results Found!"
+  message="No information available for this media item"
+></app-no-results>
+<div 
+  *ngIf="(error$ | async) === null && (loading$ | async) === false && (selectedMedia$ | async) as mediaItem" 
+  class="details_card"
+>
   <div
     class="background-image"
-    [ngStyle]="{ 'background-image': 'url(' + IMAGE_BASE_URL + mediaItem.backdrop_path + ')' }"
+    [ngStyle]="{ 'background-image': 'url(' + IMAGE_BASE_ORIGINAL_URL + mediaItem.backdrop_path + ')' }"
   >
     <div class="overlay">
       <img
@@ -30,8 +40,3 @@
     </div>
   </div>
 </div>
-
-<ng-template #noDetails>
-  <app-no-results header="No Results Found!" message="No information available for this media item">
-  </app-no-results>
-</ng-template>

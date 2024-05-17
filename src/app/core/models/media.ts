@@ -31,3 +31,8 @@ export interface ApiResponse<T> {
   total_results: number;
   results: T[];
 }
+
+export enum MediaType {
+  Movie = 'movie',
+  Tv = 'tv'
+}

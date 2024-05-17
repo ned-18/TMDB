@@ -19,7 +19,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'details/:id',
+    path: 'details/:mediaType/:id',
     loadChildren: () =>
       import('./media-details/media-details.module').then((m) => m.MediaDetailsModule)
   }
