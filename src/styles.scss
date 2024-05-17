@@ -14,7 +14,7 @@ html {
 body {
   margin: 0;
   font-style: normal;
-  font-family: "Iceland", sans-serif;
+  font-family: 'Iceland', sans-serif;
   font-size: 16px;
   overflow: overlay;
   background-color: $dark-navy;
@@ -24,7 +24,8 @@ body {
   display: none;
 }
 
-html, body {
+html,
+body {
   min-height: 100%;
   min-width: 100%;
 }
@@ -34,7 +35,7 @@ html, body {
   margin: 0 auto;
 }
 
-.cards { 
+.cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -55,26 +56,28 @@ html, body {
 }
 
 @keyframes dots {
-  0%, 20% {
+  0%,
+  20% {
     color: transparent;
     text-shadow:
-      .25em 0 0 transparent,
-      .5em 0 0 transparent;
+      0.25em 0 0 transparent,
+      0.5em 0 0 transparent;
   }
   40% {
     color: $light-grey;
     text-shadow:
-      .25em 0 0 transparent,
-      .5em 0 0 transparent;
+      0.25em 0 0 transparent,
+      0.5em 0 0 transparent;
   }
   60% {
     text-shadow:
-      .25em 0 0 $light-grey,
-      .5em 0 0 transparent;
+      0.25em 0 0 $light-grey,
+      0.5em 0 0 transparent;
   }
-  80%, 100% {
+  80%,
+  100% {
     text-shadow:
-      .25em 0 0 $light-grey,
-      .5em 0 0 $light-grey;
+      0.25em 0 0 $light-grey,
+      0.5em 0 0 $light-grey;
   }
 }

@@ -8,7 +8,7 @@
   justify-content: center;
 
   li {
-    position: relative; 
+    position: relative;
     cursor: pointer;
     font-size: 1.5rem;
     font-weight: bold;
@@ -16,7 +16,10 @@
     padding: 0.8rem;
     min-width: 7rem;
     color: $aqua;
-    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+    transition:
+      background-color 0.3s ease,
+      transform 0.3s ease,
+      color 0.3s ease;
   }
 
   li:first-child {
@@ -27,12 +30,14 @@
   li::after {
     content: '';
     position: absolute;
-    bottom: 0; 
+    bottom: 0;
     left: 0;
     right: 0;
     height: 1px;
     background-color: transparent;
-    transition: transform 0.3s ease, background-color 0.3s ease; 
+    transition:
+      transform 0.3s ease,
+      background-color 0.3s ease;
     transform: scaleX(0);
   }
 
@@ -44,7 +49,7 @@
 
   li.active::before,
   li.active::after {
-    background-color: $aqua; 
+    background-color: $aqua;
     transform: scaleX(1);
   }
 }

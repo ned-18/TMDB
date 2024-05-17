@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Store, select } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
@@ -11,7 +11,7 @@ import { Movie, TvShow, IMAGE_BASE_URL } from '@models/index';
   templateUrl: './media-details.component.html',
   styleUrls: ['./media-details.component.scss']
 })
-export class MediaDetailsComponent implements OnInit {
+export class MediaDetailsComponent implements OnInit, OnDestroy {
   readonly IMAGE_BASE_URL = IMAGE_BASE_URL;
   public selectedMedia$: Observable<Movie | TvShow | null>;
   public mediaItem: Movie | TvShow | null = null;
@@ -36,12 +36,8 @@ export class MediaDetailsComponent implements OnInit {
     }
   }
 
-  isMovie(mediaItem: any): mediaItem is Movie {
+  public isMovie(mediaItem: any): mediaItem is Movie {
     return (mediaItem as Movie).title !== undefined;
-  }
-
-  isTvShow(mediaItem: any): mediaItem is TvShow {
-    return (mediaItem as TvShow).name !== undefined;
   }
 
   public back() {

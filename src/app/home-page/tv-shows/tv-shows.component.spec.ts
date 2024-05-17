@@ -8,9 +8,8 @@ describe('TvShowsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TvShowsComponent ]
-    })
-    .compileComponents();
+      declarations: [TvShowsComponent]
+    }).compileComponents();
   });
 
   beforeEach(() => {

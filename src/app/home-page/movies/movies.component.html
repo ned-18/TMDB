@@ -1,15 +1,15 @@
 <div *ngIf="loading$ | async" class="loading">Loading...</div>
 
-<app-no-results 
+<app-no-results
   *ngIf="error$ | async as error"
   header="Oops, something went wrong!"
   message="We are having trouble loading the movies right now. Please try again later"
 ></app-no-results>
 
-<div 
-  class="cards" 
+<div
+  class="cards"
   *ngIf="(movies$ | async) && (error$ | async) === null && (loading$ | async) === false"
->  
+>
   <app-card
     *ngFor="let movie of movies$ | async"
     [title]="movie.title"
@@ -19,8 +19,8 @@
     (cardClick)="onCardClick(movie, movie.id)"
   ></app-card>
 
-  <app-no-results 
-    *ngIf="(movies$ | async)?.length === 0" 
+  <app-no-results
+    *ngIf="(movies$ | async)?.length === 0"
     header="No Results Found!"
     message="We could not find any movies matching your search."
   ></app-no-results>
