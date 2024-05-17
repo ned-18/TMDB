@@ -9,7 +9,7 @@ On the main branch, the code was committed up until May 16, the day I sent the l
 ## Prerequisites
 
 Node.js, npm (or yarn) and Angular(v16.2.14) installed on your machine.
-A TMDB API key. You can get one for free by signing up at https://www.themoviedb.org/.
+A TMDB API key. You can get one for free by signing up at [The Movie DB](https://developer.themoviedb.org/docs/getting-started).
 
 ## Installation
 
