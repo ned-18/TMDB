@@ -35,15 +35,18 @@ export class MediaService {
     return this.http.get<T>(url);
   }
 
-  getTopItems<T extends Movie | TvShow>(mediaType: MediaType): Observable<T[]> {
+  public getTopItems<T extends Movie | TvShow>(mediaType: MediaType): Observable<T[]> {
     return this.fetchItems<T>(`${mediaType}/top_rated`);
   }
 
-  searchItems<T extends Movie | TvShow>(mediaType: MediaType, searchTerm: string): Observable<T[]> {
+  public searchItems<T extends Movie | TvShow>(
+    mediaType: MediaType,
+    searchTerm: string
+  ): Observable<T[]> {
     return this.fetchItems<T>(`search/${mediaType}`, { query: searchTerm });
   }
 
-  getItemById<T extends Movie | TvShow>(mediaType: MediaType, id: number): Observable<T> {
-    return this.fetchItem<T>(`${mediaType}/${id}`);
+  public getItemById<T extends Movie | TvShow>(mediaType: MediaType, id: number): Observable<T> {
+    return this.fetchItem<T>(`${mediaType}/${id}`, { append_to_response: 'videos' });
   }
 }
