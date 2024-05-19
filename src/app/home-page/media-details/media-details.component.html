@@ -10,10 +10,23 @@
   *ngIf="(error$ | async) === null && (loading$ | async) === false && (selectedMedia$ | async) as mediaItem" 
   class="details_card"
 >
-  <div
-    class="background-image"
-    [ngStyle]="{ 'background-image': 'url(' + IMAGE_BASE_ORIGINAL_URL + mediaItem.backdrop_path + ')' }"
-  >
+  <div class="background-container">
+    <div *ngIf="(videoUrl$ | async) as videoUrl; else imageBackground" class="background-video-container">
+      <iframe 
+        class="background-video"
+        [src]="sanitizer.bypassSecurityTrustResourceUrl(videoUrl)"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+      ></iframe>
+    </div>
+  
+    <ng-template #imageBackground>
+      <div
+        class="background-image"
+        [ngStyle]="{ 'background-image': 'url(' + IMAGE_BASE_ORIGINAL_URL + mediaItem.backdrop_path + ')' }"
+      ></div>
+    </ng-template>
+  
     <div class="overlay">
       <img
         class="poster"
@@ -31,7 +44,7 @@
             }}
           </h4>
         </div>
-
+  
         <div>
           <h2>Overview</h2>
           <p>{{ mediaItem.overview }}</p>
@@ -39,4 +52,5 @@
       </div>
     </div>
   </div>
+        
 </div>
